@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useEffect } from "react";
 
-const DarkModeToggle = () => {
-  // TODO: Implement dark mode toggle logic
+const DarkModeToggle = ({ theme, setTheme }) => {
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme);
+  }, [theme]);
 
   return (
-    <button>Toggle Dark Mode {/* TODO: Update this text from Dark to Light dynamically */}</button>
-  )
-}
+    <button onClick={() => setTheme((prev) => !prev)}>
+      {theme ? " Toggle Light Mode" : "Toggle Dark Mode"}
+    </button>
+  );
+};
 
-export default DarkModeToggle
+export default DarkModeToggle;
